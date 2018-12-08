@@ -1,0 +1,28 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+%s
+class %s extends %s{
+
+    public function __construct(){
+        parent::__construct();
+    }
+
+    //控制器(视图目录名称)
+    //protected $controller = '%s';
+
+    //数据表名称
+    //protected $table = '%s';
+
+    //列表页分页条数
+    //protected $limit = %u;
+
+    //表单验证字段
+    //protected $field = [];
+
+    //表单验证失败返回信息
+    //protected $returnMsg = [];
+
+    %s
+
+}

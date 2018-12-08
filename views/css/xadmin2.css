@@ -1,0 +1,24 @@
+/*layui小按钮*/
+.layui-btn-xs{
+    height:22px;
+    line-height:22px;
+    padding:0 7px;
+    font-size:12px;
+}
+.layui-btn-xs i{
+    font-size:14px!important
+}
+
+/*列表*/
+.list-center{
+    text-align:center!important;
+}
+
+/*表单*/
+.input-xs{
+    width:60px;
+    font-size:14px;
+    padding:0;
+    text-align:center;
+    margin:0 auto;
+}

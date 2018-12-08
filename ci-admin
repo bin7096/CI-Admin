@@ -1,0 +1,40 @@
+#!/usr/bin/php
+<?php
+include_once './command/optimize/Make.php';
+include_once './command/optimize/Help.php';
+include_once './command/optimize/Emoji.php';
+
+$param = empty($argv) ? $_SERVER['argv'] : $argv;
+
+define('ANSI', isset($_SERVER['ConEmuANSI']) && strtolower($_SERVER['ConEmuANSI']) == 'on' ? true : false);
+define('ROOT_PATH', dirname(__FILE__));
+
+isset($param[1]) ? : $param[1] = 'help';
+
+switch (strtolower($param[1])){
+    case 'make':
+
+        if (isset($param[2]) && isset($param[3])){
+
+            $make = new Make();
+
+            $make -> run($param);
+
+        }
+
+        break;
+    case 'help':
+
+        $help = new Help();
+
+        $help -> run();
+
+        break;
+    case 'emoji':
+
+        $emoji = new Emoji();
+
+        $emoji -> output($param);
+
+        break;
+}
