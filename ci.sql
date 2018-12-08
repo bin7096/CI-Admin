@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 08/12/2018 16:03:56
+ Date: 08/12/2018 16:51:07
 */
 
 SET NAMES utf8mb4;
@@ -274,6 +274,6 @@ CREATE TABLE `ci_admin_user`  (
 -- ----------------------------
 -- Records of ci_admin_user
 -- ----------------------------
-INSERT INTO `ci_admin_user` VALUES (1, 'admin', '超级管理员', 'e10adc3949ba59abbe56e057f20f883e', 1, 1544254795, '127.0.0.1', 0, 'bin_id@163.com', '18600000000', '', '1', '0', 1542112401, 1542112401);
+INSERT INTO `ci_admin_user` VALUES (1, 'admin', '超级管理员', 'e10adc3949ba59abbe56e057f20f883e', 1, 1544257989, '127.0.0.1', 0, 'bin_id@163.com', '18600000000', '', '1', '0', 1542112401, 1542112401);
 
 SET FOREIGN_KEY_CHECKS = 1;
