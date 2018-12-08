@@ -41,6 +41,8 @@ class Pub extends CI_Controller
             return ajax_return_json_error($this, '用户名和密码有误，请重新输入');
 
         }else{
+            $this->session->sess_destroy();
+
             return $this -> load -> view('pub/login');
         }
 
