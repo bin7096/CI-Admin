@@ -81,16 +81,15 @@ class CI_Controller {
 
 		//权限验证
         $router  = strtolower($this -> router -> fetch_class()) . '/' . strtolower($this -> router -> fetch_method());
-//        echo $router;exit;
+        
         $this -> load -> library('session');
+        $this -> load -> database();
 
         $not_verify = array('welcome/index', 'welcome/welcome2', 'pub/login');
 
         $verify_pass = in_array($router, $not_verify) ? true : false;
 
         if (!$verify_pass){
-
-            $this -> load -> database();
 
             $user_id = $this -> session -> userdata('user_id');
 
