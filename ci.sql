@@ -11,7 +11,7 @@
  Target Server Version : 50553
  File Encoding         : 65001
 
- Date: 08/12/2018 16:51:07
+ Date: 10/12/2018 22:57:29
 */
 
 SET NAMES utf8mb4;
@@ -29,17 +29,24 @@ CREATE TABLE `ci_admin_access`  (
 -- ----------------------------
 -- Records of ci_admin_access
 -- ----------------------------
+INSERT INTO `ci_admin_access` VALUES (1, 61);
+INSERT INTO `ci_admin_access` VALUES (1, 59);
+INSERT INTO `ci_admin_access` VALUES (1, 58);
+INSERT INTO `ci_admin_access` VALUES (1, 57);
+INSERT INTO `ci_admin_access` VALUES (1, 56);
+INSERT INTO `ci_admin_access` VALUES (1, 55);
+INSERT INTO `ci_admin_access` VALUES (1, 54);
 INSERT INTO `ci_admin_access` VALUES (1, 53);
 INSERT INTO `ci_admin_access` VALUES (1, 52);
 INSERT INTO `ci_admin_access` VALUES (1, 51);
 INSERT INTO `ci_admin_access` VALUES (1, 50);
 INSERT INTO `ci_admin_access` VALUES (1, 49);
 INSERT INTO `ci_admin_access` VALUES (1, 48);
-INSERT INTO `ci_admin_access` VALUES (1, 47);
 INSERT INTO `ci_admin_access` VALUES (1, 46);
 INSERT INTO `ci_admin_access` VALUES (1, 45);
 INSERT INTO `ci_admin_access` VALUES (1, 44);
 INSERT INTO `ci_admin_access` VALUES (1, 43);
+INSERT INTO `ci_admin_access` VALUES (1, 42);
 INSERT INTO `ci_admin_access` VALUES (1, 41);
 INSERT INTO `ci_admin_access` VALUES (1, 40);
 INSERT INTO `ci_admin_access` VALUES (1, 39);
@@ -49,10 +56,10 @@ INSERT INTO `ci_admin_access` VALUES (1, 36);
 INSERT INTO `ci_admin_access` VALUES (1, 35);
 INSERT INTO `ci_admin_access` VALUES (1, 34);
 INSERT INTO `ci_admin_access` VALUES (1, 33);
-INSERT INTO `ci_admin_access` VALUES (1, 32);
 INSERT INTO `ci_admin_access` VALUES (1, 31);
 INSERT INTO `ci_admin_access` VALUES (1, 30);
 INSERT INTO `ci_admin_access` VALUES (1, 29);
+INSERT INTO `ci_admin_access` VALUES (1, 28);
 INSERT INTO `ci_admin_access` VALUES (1, 27);
 INSERT INTO `ci_admin_access` VALUES (1, 26);
 INSERT INTO `ci_admin_access` VALUES (1, 25);
@@ -66,7 +73,7 @@ INSERT INTO `ci_admin_access` VALUES (1, 18);
 INSERT INTO `ci_admin_access` VALUES (1, 17);
 INSERT INTO `ci_admin_access` VALUES (1, 16);
 INSERT INTO `ci_admin_access` VALUES (1, 15);
-INSERT INTO `ci_admin_access` VALUES (1, 14);
+INSERT INTO `ci_admin_access` VALUES (1, 13);
 INSERT INTO `ci_admin_access` VALUES (1, 12);
 INSERT INTO `ci_admin_access` VALUES (1, 11);
 INSERT INTO `ci_admin_access` VALUES (1, 10);
@@ -78,6 +85,7 @@ INSERT INTO `ci_admin_access` VALUES (1, 5);
 INSERT INTO `ci_admin_access` VALUES (1, 4);
 INSERT INTO `ci_admin_access` VALUES (1, 3);
 INSERT INTO `ci_admin_access` VALUES (1, 2);
+INSERT INTO `ci_admin_access` VALUES (1, 63);
 
 -- ----------------------------
 -- Table structure for ci_admin_generate_func
@@ -154,64 +162,74 @@ CREATE TABLE `ci_admin_node`  (
   `update_time` int(10) NOT NULL DEFAULT 0 COMMENT '更新时间',
   `is_system` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '0' COMMENT '是否是系统节点（0-否，1-是）',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = MyISAM AUTO_INCREMENT = 54 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 64 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of ci_admin_node
 -- ----------------------------
-INSERT INTO `ci_admin_node` VALUES (1, 0, 1, 'AdminGroup', '分组管理', '分组管理', 1, '0', 1, '1', '0', 1544251228, 1544251228, '0');
-INSERT INTO `ci_admin_node` VALUES (2, 1, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544251253, 1544251253, '0');
-INSERT INTO `ci_admin_node` VALUES (3, 1, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544251289, 1544251289, '0');
-INSERT INTO `ci_admin_node` VALUES (4, 1, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544251306, 1544251306, '0');
-INSERT INTO `ci_admin_node` VALUES (5, 1, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544251325, 1544251325, '0');
-INSERT INTO `ci_admin_node` VALUES (6, 1, 1, 'show', '查看', '查看', 2, '1', 5, '1', '0', 1544251360, 1544251360, '0');
-INSERT INTO `ci_admin_node` VALUES (7, 1, 1, 'forbidden', '禁用', '禁用', 2, '1', 6, '1', '0', 1544251396, 1544251396, '0');
-INSERT INTO `ci_admin_node` VALUES (8, 1, 1, 'recover', '启用', '启用', 2, '1', 7, '1', '0', 1544251418, 1544251418, '0');
-INSERT INTO `ci_admin_node` VALUES (9, 1, 1, 'recycleBin', '回收站', '回收站', 2, '1', 8, '1', '0', 1544251504, 1544251504, '0');
-INSERT INTO `ci_admin_node` VALUES (10, 1, 1, 'recycle', '回收', '回收', 2, '1', 9, '1', '0', 1544251525, 1544251525, '0');
-INSERT INTO `ci_admin_node` VALUES (11, 1, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 10, '1', '0', 1544251551, 1544251551, '0');
-INSERT INTO `ci_admin_node` VALUES (13, 0, 1, 'AdminNode', '节点管理', '节点管理', 1, '0', 2, '1', '0', 1544251591, 1544251591, '0');
-INSERT INTO `ci_admin_node` VALUES (14, 13, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544251622, 1544251622, '0');
-INSERT INTO `ci_admin_node` VALUES (15, 13, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544251640, 1544251640, '0');
-INSERT INTO `ci_admin_node` VALUES (16, 13, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544251654, 1544251654, '0');
-INSERT INTO `ci_admin_node` VALUES (17, 13, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544251673, 1544251673, '0');
-INSERT INTO `ci_admin_node` VALUES (18, 13, 1, 'show', '查看', '查看', 2, '1', 5, '1', '0', 1544251710, 1544251710, '0');
-INSERT INTO `ci_admin_node` VALUES (19, 13, 1, 'forbidden', '禁用', '禁用', 2, '1', 6, '1', '0', 1544251739, 1544251739, '0');
-INSERT INTO `ci_admin_node` VALUES (20, 13, 1, 'recover', '启用', '启用', 2, '1', 7, '1', '0', 1544251761, 1544251761, '0');
-INSERT INTO `ci_admin_node` VALUES (21, 13, 1, 'methodList', '方法列表', '方法列表', 2, '1', 8, '1', '0', 1544251809, 1544251809, '0');
-INSERT INTO `ci_admin_node` VALUES (22, 13, 1, 'addMethod', '添加方法', '添加方法', 2, '1', 9, '1', '0', 1544251867, 1544251867, '0');
-INSERT INTO `ci_admin_node` VALUES (23, 13, 1, 'editMethod', '编辑方法', '编辑方法', 2, '1', 10, '1', '0', 1544251903, 1544251903, '0');
-INSERT INTO `ci_admin_node` VALUES (24, 13, 1, 'delMethod', '删除方法', '删除方法', 2, '1', 11, '1', '0', 1544251930, 1544251930, '0');
-INSERT INTO `ci_admin_node` VALUES (25, 13, 1, 'showMethod', '查看方法', '查看方法', 2, '1', 12, '1', '0', 1544252008, 1544252008, '0');
-INSERT INTO `ci_admin_node` VALUES (26, 13, 1, 'methodRecycle', '方法回收站', '方法回收站', 2, '1', 13, '1', '0', 1544252059, 1544252059, '0');
-INSERT INTO `ci_admin_node` VALUES (28, 0, 1, 'AdminRole', '角色管理', '角色管理', 1, '0', 3, '1', '0', 1544252601, 1544252601, '0');
-INSERT INTO `ci_admin_node` VALUES (29, 28, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544252633, 1544252633, '0');
-INSERT INTO `ci_admin_node` VALUES (30, 28, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544252654, 1544252654, '0');
-INSERT INTO `ci_admin_node` VALUES (31, 28, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544252672, 1544252672, '0');
-INSERT INTO `ci_admin_node` VALUES (32, 28, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544252711, 1544252711, '0');
-INSERT INTO `ci_admin_node` VALUES (33, 28, 1, 'show', '查看', '查看', 2, '1', 5, '1', '0', 1544252728, 1544252728, '0');
-INSERT INTO `ci_admin_node` VALUES (34, 28, 1, 'users', '查看用户', '查看用户', 2, '1', 6, '1', '0', 1544252780, 1544252780, '0');
-INSERT INTO `ci_admin_node` VALUES (35, 28, 1, 'nodes', '授权列表', '授权列表', 2, '1', 7, '1', '0', 1544252815, 1544252815, '0');
-INSERT INTO `ci_admin_node` VALUES (36, 28, 1, 'forbidden', '禁用', '禁用', 2, '1', 8, '1', '0', 1544252844, 1544252844, '0');
-INSERT INTO `ci_admin_node` VALUES (37, 28, 1, 'recover', '启用', '启用', 2, '1', 9, '1', '0', 1544252863, 1544252863, '0');
-INSERT INTO `ci_admin_node` VALUES (38, 28, 1, 'recycleBin', '回收站', '回收站', 2, '1', 10, '1', '0', 1544252886, 1544252886, '0');
-INSERT INTO `ci_admin_node` VALUES (39, 28, 1, 'recycle', '回收', '回收', 2, '1', 11, '1', '0', 1544252911, 1544252911, '0');
-INSERT INTO `ci_admin_node` VALUES (40, 28, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 12, '1', '0', 1544252952, 1544252952, '0');
-INSERT INTO `ci_admin_node` VALUES (42, 0, 1, 'AdminUser', '用户管理', '用户管理', 1, '0', 4, '1', '0', 1544252995, 1544252995, '0');
-INSERT INTO `ci_admin_node` VALUES (12, 1, 1, 'sort', '保存排序', '保存排序', 2, '1', 11, '1', '0', 1544253286, 1544253286, '0');
-INSERT INTO `ci_admin_node` VALUES (27, 13, 1, 'sort', '保存排序', '保存排序', 2, '1', 14, '1', '0', 1544253328, 1544253328, '0');
-INSERT INTO `ci_admin_node` VALUES (41, 28, 1, 'sort', '保存排序', '保存排序', 2, '1', 13, '1', '0', 1544253369, 1544253369, '0');
-INSERT INTO `ci_admin_node` VALUES (43, 42, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544254343, 1544254343, '0');
-INSERT INTO `ci_admin_node` VALUES (44, 42, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544254380, 1544254380, '0');
-INSERT INTO `ci_admin_node` VALUES (45, 42, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544254393, 1544254393, '0');
-INSERT INTO `ci_admin_node` VALUES (46, 42, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544254408, 1544254408, '0');
-INSERT INTO `ci_admin_node` VALUES (47, 42, 1, 'show', '查看', '查看', 2, '1', 5, '1', '0', 1544254425, 1544254425, '0');
-INSERT INTO `ci_admin_node` VALUES (48, 42, 1, 'forbidden', '禁用', '禁用', 2, '1', 6, '1', '0', 1544254448, 1544254448, '0');
-INSERT INTO `ci_admin_node` VALUES (49, 42, 1, 'recover', '启用', '启用', 2, '1', 7, '1', '0', 1544254468, 1544254468, '0');
-INSERT INTO `ci_admin_node` VALUES (50, 42, 1, 'recycleBin', '回收站', '回收站', 2, '1', 8, '1', '0', 1544254493, 1544254493, '0');
-INSERT INTO `ci_admin_node` VALUES (51, 42, 1, 'recycle', '回收', '回收', 2, '1', 9, '1', '0', 1544254515, 1544254515, '0');
-INSERT INTO `ci_admin_node` VALUES (52, 42, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 10, '1', '0', 1544254544, 1544254544, '0');
-INSERT INTO `ci_admin_node` VALUES (53, 42, 1, 'sort', '保存排序', '保存排序', 2, '1', 11, '1', '0', 1544254574, 1544254574, '0');
+INSERT INTO `ci_admin_node` VALUES (1, 0, 1, 'AdminGroup', '分组管理', '分组管理', 1, '0', 1, '1', '0', 1544451483, 1544451483, '0');
+INSERT INTO `ci_admin_node` VALUES (2, 1, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544451501, 1544451501, '0');
+INSERT INTO `ci_admin_node` VALUES (3, 1, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544451518, 1544451518, '0');
+INSERT INTO `ci_admin_node` VALUES (4, 1, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544451549, 1544451549, '0');
+INSERT INTO `ci_admin_node` VALUES (5, 1, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544451569, 1544451569, '0');
+INSERT INTO `ci_admin_node` VALUES (6, 1, 1, 'sort', '排序', '排序', 2, '1', 5, '1', '0', 1544451592, 1544451592, '0');
+INSERT INTO `ci_admin_node` VALUES (7, 1, 1, 'status', '修改状态', '修改状态', 2, '1', 6, '1', '0', 1544451626, 1544451626, '0');
+INSERT INTO `ci_admin_node` VALUES (8, 1, 1, 'recover', '批量启用', '批量启用', 2, '1', 7, '1', '0', 1544451665, 1544451665, '0');
+INSERT INTO `ci_admin_node` VALUES (9, 1, 1, 'forbidden', '批量禁用', '批量禁用', 2, '1', 8, '1', '0', 1544451684, 1544451684, '0');
+INSERT INTO `ci_admin_node` VALUES (10, 1, 1, 'show', '查看', '查看', 2, '1', 9, '1', '0', 1544451734, 1544451734, '0');
+INSERT INTO `ci_admin_node` VALUES (11, 1, 1, 'recycleBin', '回收站', '回收站', 2, '1', 10, '1', '0', 1544451770, 1544451770, '0');
+INSERT INTO `ci_admin_node` VALUES (12, 1, 1, 'recycle', '回收', '回收', 2, '1', 11, '1', '0', 1544451786, 1544451786, '0');
+INSERT INTO `ci_admin_node` VALUES (13, 1, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 12, '1', '0', 1544451809, 1544451809, '0');
+INSERT INTO `ci_admin_node` VALUES (14, 0, 1, 'AdminNode', '节点管理', '节点管理', 1, '0', 2, '1', '0', 1544451863, 1544451863, '0');
+INSERT INTO `ci_admin_node` VALUES (15, 14, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544451884, 1544451884, '0');
+INSERT INTO `ci_admin_node` VALUES (16, 14, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544451932, 1544451932, '0');
+INSERT INTO `ci_admin_node` VALUES (17, 14, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544451958, 1544451958, '0');
+INSERT INTO `ci_admin_node` VALUES (18, 14, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544451977, 1544451977, '0');
+INSERT INTO `ci_admin_node` VALUES (19, 14, 1, 'sort', '批量排序', '批量排序', 2, '1', 5, '1', '0', 1544452010, 1544452010, '0');
+INSERT INTO `ci_admin_node` VALUES (20, 14, 1, 'status', '修改状态', '修改状态', 2, '1', 6, '1', '0', 1544452044, 1544452044, '0');
+INSERT INTO `ci_admin_node` VALUES (21, 14, 1, 'recover', '批量启用', '批量启用', 2, '1', 7, '1', '0', 1544452066, 1544452066, '0');
+INSERT INTO `ci_admin_node` VALUES (22, 14, 1, 'forbidden', '批量禁用', '批量禁用', 2, '1', 8, '1', '0', 1544452092, 1544452092, '0');
+INSERT INTO `ci_admin_node` VALUES (23, 14, 1, 'methodList', '方法列表', '方法列表', 2, '1', 9, '1', '0', 1544452156, 1544452156, '0');
+INSERT INTO `ci_admin_node` VALUES (24, 14, 1, 'addMethod', '添加方法', '添加方法', 2, '1', 10, '1', '0', 1544452193, 1544452193, '0');
+INSERT INTO `ci_admin_node` VALUES (25, 14, 1, 'editMethod', '编辑方法', '编辑方法', 2, '1', 11, '1', '0', 1544452228, 1544452228, '0');
+INSERT INTO `ci_admin_node` VALUES (26, 14, 1, 'showMethod', '查看方法', '查看方法', 2, '1', 12, '1', '0', 1544452257, 1544452257, '0');
+INSERT INTO `ci_admin_node` VALUES (27, 14, 1, 'methodRecycle', '方法回收站', '方法回收站', 2, '1', 13, '1', '0', 1544452284, 1544452284, '0');
+INSERT INTO `ci_admin_node` VALUES (28, 14, 1, 'show', '查看', '查看', 2, '1', 17, '1', '0', 1544452452, 1544452452, '0');
+INSERT INTO `ci_admin_node` VALUES (29, 14, 1, 'recycleBin', '回收站', '回收站', 2, '1', 14, '1', '0', 1544452309, 1544452309, '0');
+INSERT INTO `ci_admin_node` VALUES (30, 14, 1, 'recycle', '回收', '回收', 2, '1', 15, '1', '0', 1544452333, 1544452333, '0');
+INSERT INTO `ci_admin_node` VALUES (31, 14, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 16, '1', '0', 1544452370, 1544452370, '0');
+INSERT INTO `ci_admin_node` VALUES (32, 0, 1, 'AdminRole', '角色管理', '角色管理', 1, '0', 3, '1', '0', 1544452499, 1544452499, '0');
+INSERT INTO `ci_admin_node` VALUES (33, 32, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544452546, 1544452546, '0');
+INSERT INTO `ci_admin_node` VALUES (34, 32, 1, 'add', '添加', 'add', 2, '1', 2, '1', '0', 1544452559, 1544452559, '0');
+INSERT INTO `ci_admin_node` VALUES (35, 32, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544452580, 1544452580, '0');
+INSERT INTO `ci_admin_node` VALUES (36, 32, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544452595, 1544452595, '0');
+INSERT INTO `ci_admin_node` VALUES (37, 32, 1, 'sort', '批量排序', '批量排序', 2, '1', 5, '1', '0', 1544452615, 1544452615, '0');
+INSERT INTO `ci_admin_node` VALUES (38, 32, 1, 'status', '修改状态', '修改状态', 2, '1', 6, '1', '0', 1544452734, 1544452734, '0');
+INSERT INTO `ci_admin_node` VALUES (39, 32, 1, 'recover', '批量启用', '批量启用', 2, '1', 7, '1', '0', 1544452762, 1544452762, '0');
+INSERT INTO `ci_admin_node` VALUES (40, 32, 1, 'forbidden', '批量禁用', '批量禁用', 2, '1', 8, '1', '0', 1544452787, 1544452787, '0');
+INSERT INTO `ci_admin_node` VALUES (41, 32, 1, 'show', '查看', '查看', 2, '1', 9, '1', '0', 1544452845, 1544452845, '0');
+INSERT INTO `ci_admin_node` VALUES (42, 32, 1, 'users', '用户列表', '用户列表', 2, '1', 10, '1', '0', 1544452872, 1544452872, '0');
+INSERT INTO `ci_admin_node` VALUES (43, 32, 1, 'nodes', '授权列表', '授权列表', 2, '1', 11, '1', '0', 1544452891, 1544452891, '0');
+INSERT INTO `ci_admin_node` VALUES (44, 32, 1, 'recycleBin', '回收站', '回收站', 2, '1', 12, '1', '0', 1544452914, 1544452914, '0');
+INSERT INTO `ci_admin_node` VALUES (45, 32, 1, 'recycle', '回收', '回收', 2, '1', 13, '1', '0', 1544452931, 1544452931, '0');
+INSERT INTO `ci_admin_node` VALUES (46, 32, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 14, '1', '0', 1544452952, 1544452952, '0');
+INSERT INTO `ci_admin_node` VALUES (47, 0, 1, 'AdminUser', '用户管理', '用户管理', 1, '0', 4, '1', '0', 1544452990, 1544452990, '0');
+INSERT INTO `ci_admin_node` VALUES (48, 47, 1, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544453034, 1544453034, '0');
+INSERT INTO `ci_admin_node` VALUES (49, 47, 1, 'add', '添加', '添加', 2, '1', 2, '1', '0', 1544453050, 1544453050, '0');
+INSERT INTO `ci_admin_node` VALUES (50, 47, 1, 'edit', '编辑', '编辑', 2, '1', 3, '1', '0', 1544453068, 1544453068, '0');
+INSERT INTO `ci_admin_node` VALUES (51, 47, 1, 'del', '删除', '删除', 2, '1', 4, '1', '0', 1544453068, 1544453068, '0');
+INSERT INTO `ci_admin_node` VALUES (52, 47, 1, 'sort', '批量排序', '批量排序', 2, '1', 5, '1', '0', 1544453134, 1544453134, '0');
+INSERT INTO `ci_admin_node` VALUES (53, 47, 1, 'status', '修改状态', '修改状态', 2, '1', 6, '1', '0', 1544453161, 1544453161, '0');
+INSERT INTO `ci_admin_node` VALUES (54, 47, 1, 'recover', '批量启用', '批量启用', 2, '1', 7, '1', '0', 1544453194, 1544453194, '0');
+INSERT INTO `ci_admin_node` VALUES (55, 47, 1, 'forbidden', '批量禁用', '批量禁用', 2, '1', 8, '1', '0', 1544453215, 1544453215, '0');
+INSERT INTO `ci_admin_node` VALUES (56, 47, 1, 'show', '查看', '查看', 2, '1', 9, '1', '0', 1544453246, 1544453246, '0');
+INSERT INTO `ci_admin_node` VALUES (57, 47, 1, 'recycleBin', '回收站', '回收站', 2, '1', 10, '1', '0', 1544453266, 1544453266, '0');
+INSERT INTO `ci_admin_node` VALUES (58, 47, 1, 'recycle', '回收', '回收', 2, '1', 11, '1', '0', 1544453284, 1544453284, '0');
+INSERT INTO `ci_admin_node` VALUES (59, 47, 1, 'delForever', '彻底删除', '彻底删除', 2, '1', 12, '1', '0', 1544453303, 1544453303, '0');
+INSERT INTO `ci_admin_node` VALUES (60, 0, 2, 'GenerateNode', '节点自动生成', '节点自动生成', 1, '0', 1, '1', '0', 1544453357, 1544453357, '0');
+INSERT INTO `ci_admin_node` VALUES (61, 60, 2, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544453376, 1544453376, '0');
+INSERT INTO `ci_admin_node` VALUES (62, 0, 2, 'GenerateList', '列表自动生成', '列表自动生成', 1, '0', 2, '1', '0', 1544453405, 1544453405, '0');
+INSERT INTO `ci_admin_node` VALUES (63, 62, 2, 'index', '首页', '首页', 2, '1', 1, '1', '0', 1544453529, 1544453529, '0');
 
 -- ----------------------------
 -- Table structure for ci_admin_role
@@ -274,6 +292,6 @@ CREATE TABLE `ci_admin_user`  (
 -- ----------------------------
 -- Records of ci_admin_user
 -- ----------------------------
-INSERT INTO `ci_admin_user` VALUES (1, 'admin', '超级管理员', 'e10adc3949ba59abbe56e057f20f883e', 1, 1544257989, '127.0.0.1', 0, 'bin_id@163.com', '18600000000', '', '1', '0', 1542112401, 1542112401);
+INSERT INTO `ci_admin_user` VALUES (1, 'admin', '超级管理员', 'e10adc3949ba59abbe56e057f20f883e', 1, 1544447984, '127.0.0.1', 0, 'bin_id@163.com', '18600000000', '', '1', '0', 1542112401, 1542112401);
 
 SET FOREIGN_KEY_CHECKS = 1;

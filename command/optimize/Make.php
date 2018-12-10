@@ -302,7 +302,7 @@ class Make
 
     /**
      * 生成列表页面
-     * @param string  filename          列表文件名称
+     * @param string  control_name      控制器/视图目录名称
      * @param array   title             前端提交标题列表
      * @param array   type              前端提交类型列表
      * @param array   field             前端提交数据字段列表
@@ -310,9 +310,29 @@ class Make
      * @param string  count             前端提交统计变量名称
      * @param boolean make_recycle      是否生成回收站列表
     */
-    static public function generate_list($filename, $title, $type, $field, $other, $count, $make_recycle = true){
+    static public function generate_list($control_name, $title, $type, $field, $other, $count, $make_recycle = true){
 
         $th = self::process_th($title);
+
+        $td = self::process_td($type, $field, $other);
+
+        $btn = '<?php echo btn_list($this, ["add", "sort", "forbidden", "recover", "delAll", "recycleBin"], $' . $count .'); ?>';
+
+        $dirname = self::generate_view_dir($control_name);
+
+        $content = file_get_contents(COMMAND_PATH . '\\stub\\generate_list.stub');
+
+        $bool = file_put_contents($dirname . '\\list.php', sprintf($content, $btn, $th, $td));
+
+        if (!$bool || !$make_recycle){
+            return $bool;
+        }
+
+        $btn = '<?php echo btn_list($this, ["recycle", "delforever", "index"], $' . $count .'); ?>';
+
+        $bool = file_put_contents($dirname . '\\recycleBin.php', sprintf($content, $btn, $th, $td));
+
+        return $bool;
 
     }
 
@@ -320,13 +340,13 @@ class Make
      * 处理th
      * @param array title 前端提交标题列表
     */
-    protected function process_th($title){
+    static protected function process_th($title){
 
         $html = '';
 
         foreach ($title as $v){
 
-            $html .= '<td class="list-center">' . $v . '</td>';
+            $html .= '<th class="list-center">' . $v . '</th>';
 
         }
 
@@ -336,8 +356,11 @@ class Make
 
     /**
      * 处理td
+     * @param array type  列类型数组（[0=>'文字',1=>'操作栏',2=>'序号输入框',3=>'启用&禁用按钮',4=>'iframe弹窗按钮']）
+     * @param array field 列名称
+     * @param array other 扩展（类型为操作时不为空,[1=>'编辑',2=>'显示',3=>'删除']）
     */
-    protected function process_td($type, $field, $other){
+    static protected function process_td($type, $field, $other){
 
         $html = '';
 
@@ -350,11 +373,11 @@ class Make
                     break;
                 //操作栏
                 case "1":
-                    $html .= '<td class="td-manage">' . self::process_mother($other) . '</td>';
+                    $html .= '<td class="td-manage">' . self::process_mother(json_decode($other,true)[$k]) . '</td>';
                     break;
                 //序号输入框
                 case "2":
-                    $html .= '<td class="list-center"><input type="text" name="sort" id="<?php echo $item[\'id\'] ?>" class="layui-input input-xs" value="<?php echo $item[\'' . $field['$k'] . '\'] ?>"></td>';
+                    $html .= '<td class="list-center"><input type="text" name="sort" id="<?php echo $item[\'id\'] ?>" class="layui-input input-xs" value="<?php echo $item[\'' . $field[$k] . '\'] ?>"></td>';
                     break;
                 //启用、禁用按钮
                 case "3":
@@ -362,18 +385,20 @@ class Make
                     break;
                 //iframe弹窗按钮
                 case "4":
-                    $html .= '<td class="list-center"><button class="layui-btn layui-btn-xs layui-bg-green" title="标题" onclick="x_admin_show(\"标题\",\"/AdminNode/methodList?pid=<?php echo $item[\'id\']; ?>\")" >查看</button></td>';
+                    $html .= '<td class="list-center"><button class="layui-btn layui-btn-xs layui-bg-green" title="标题" onclick="x_admin_show(\'标题\',\'/AdminNode/methodList?pid=' . '<?php echo $item["id"]; ?>' . '\')" >查看</button></td>';
                     break;
             }
 
         }
+
+        return $html;
 
     }
 
     /**
      * 处理操作栏
     */
-    protected function process_mother($other){
+    static protected function process_mother($other){
 
         $arr = '[';
 

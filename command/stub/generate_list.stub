@@ -30,15 +30,16 @@
 </div>
 <div class="x-body">
     <xblock>
-        <?php echo btn_list($this, ['add', 'sort', 'forbidden', 'recover', 'delAll', 'recycleBin'], $count); ?>
+        %s
     </xblock>
     <table class="layui-table">
         <thead>
-        <tr>
-            <th class="list-center">
-                <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-            </th>
-            %s
+            <tr>
+                <th class="list-center">
+                    <div class="layui-unselect header layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                </th>
+                %s
+            </tr>
         </thead>
         <tbody>
         <?php foreach ($list as $item): ?>

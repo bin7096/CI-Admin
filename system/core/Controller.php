@@ -81,7 +81,7 @@ class CI_Controller {
 
 		//权限验证
         $router  = strtolower($this -> router -> fetch_class()) . '/' . strtolower($this -> router -> fetch_method());
-        
+
         $this -> load -> library('session');
         $this -> load -> database();
 

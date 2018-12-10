@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once "./application/libraries/Curd.php";
+include_once "./command/optimize/Make.php";
 class GenerateList extends Curd{
 
     public function __construct(){
@@ -30,25 +31,33 @@ class GenerateList extends Curd{
         if (IS_POST){
 
             $data = $_POST;
+//            echo '<pre/>';
+//            var_dump($data);exit;
 
             $control_info = $this -> db -> select('name') -> where('id', $data['control']) -> get('admin_node') -> row_array();
 
-            $control_name = $control_info['name'];
+            $control_name = hump_to_line($control_info['name']);
 
-            //控制器文件是否存在
-            if (!is_file(ROOT_PATH . '\\' . THIS_MODULE . '\\controllers\\' . $control_name . '.php')){
-                return ajax_return_json_error($this, '该控制器文件不存在');
+            //判断文件是否存在
+            $filename = ROOT_PATH . '\\views\\' . $control_name;
+
+            if (is_file($filename . '\\list.php')){
+                return ajax_return_json_error($this, '列表文件已存在');
             }
 
-            //视图目录名
-            $dirname = ROOT_PATH . '\\' . THIS_MODULE . '\\views\\' . hump_to_line($control_name);
-
-            //视图目录是否存在
-            if (!is_dir($dirname)){
-                mkdir($dirname);
+            $make_recycle = $data['recycleBin'] === "1" ? true : false;
+            //当回收站文件存在时不生成
+            if ($make_recycle && is_file($filename . '\\recycleBin.php')){
+                $make_recycle = false;
             }
 
+            $bool = Make::generate_list($control_name, $data['title'], $data['type'], $data['field'], $data['other'], $data['count'], $make_recycle);
 
+            if (!$bool){
+                return ajax_return_json_error($this, '生成列表失败');
+            }
+
+            return ajax_return_json($this, '生成列表成功');
 
         }else{
 
@@ -60,6 +69,5 @@ class GenerateList extends Curd{
         }
 
     }
-
 
 }

@@ -60,6 +60,8 @@
 
 <body>
 <div class="x-body">
+    <p class="title_font">* 此功能为测试功能，请谨慎使用！</p>
+    <hr class="layui-bg-red">
     <form class="layui-form" action="javascript:;" id="form">
         <table class="layui-table list-table">
             <thead>
@@ -104,7 +106,7 @@
                 <tr id="0">
                     <td><input type="text" name="title" placeholder="请输入标题" class="layui-input"></td>
                     <td class="select_td">
-                        <select name="type" id="0">
+                        <select name="type" lay-filter="type" id="0">
                             <option value="0">文字</option>
                             <option value="1">操作栏</option>
                             <option value="2">序号输入框</option>
@@ -144,11 +146,11 @@
     layui.use(['form','layer'], function() {
         form = layui.form;
         layer = layui.layer;
-        form.on('select', function(data){
+        form.on('select(type)', function(data){
             var parent_td = $(data.elem).parent();
             parent_td.parent().attr('id',data.value);
             if (data.value === '1') {
-                parent_td.next().html('- - 无 - -');
+                parent_td.next().html('<input type="text" name="dataField" placeholder="不可编辑" readonly class="layui-input" value="">');
                 parent_td.next().next().html(checkbox);
                 form.render();
             }else{
@@ -216,7 +218,7 @@
     var html = '<tr id="0">' +
                     '<td><input type="text" name="title" placeholder="请输入标题" class="layui-input"></td>' +
                     '<td class="select_td">' +
-                    '    <select name="type">' +
+                    '    <select name="type" lay-filter="type">' +
                     '        <option value="0">文字</option>' +
                     '        <option value="1">操作栏</option>' +
                     '        <option value="2">序号输入框</option>' +
